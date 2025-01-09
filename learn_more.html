@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Узнать больше</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(90deg, #ff0000, #990000);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            text-transform: uppercase;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        header nav a:hover {
+            color: #ffcc00;
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 100px 20px;
+            background: url('service9.jpg') no-repeat center center/cover;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            margin: 0 0 20px;
+            color: #ffcc00;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            margin-top: 30px;
+            color: #fff;
+            background: #ff0000;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .hero button:hover {
+            background: #990000;
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            color: #ffcc00;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            max-width: 300px;
+            margin: 20px;
+            text-align: center;
+            border: 2px solid #ff0000;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 0, 0, 0.1);
+        }
+
+        .feature img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #990000;
+            color: #fff;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Медиазапросы для мобильных устройств */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 1.5em;
+                text-align: center;
+            }
+
+            header nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header nav a {
+                margin: 10px 0;
+                font-size: 1.2em;
+            }
+
+            .hero {
+                padding: 80px 20px;
+            }
+
+            .hero h2 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .hero button {
+                font-size: 1em;
+                padding: 12px 25px;
+            }
+
+            .features {
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .feature {
+                max-width: 90%;
+                margin: 15px 0;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.3em;
+            }
+
+            header nav a {
+                font-size: 1em;
+            }
+
+            .hero h2 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            .hero button {
+                font-size: 1em;
+                padding: 12px 20px;
+                width: 100%;
+            }
+
+            .features {
+                padding: 0 10px;
+            }
+
+            .feature {
+                max-width: 100%;
+                padding: 15px;
+                font-size: 1em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            section h2 {
+                font-size: 2em;
+            }
+
+            section p {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Jarvis Pro Education</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="learn_more.html">Узнать больше</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </header>
+    <section>
+        <h2>Узнайте больше о наших программах</h2>
+        <p>Мы предлагаем уникальные курсы, которые помогут вам освоить программирование и создавать инновационные проекты. Узнайте, как мы можем помочь вам достичь ваших целей!</p>
+    </section>
+    <footer>
+        <p>© 2024 Jarvis Pro Education. Все права защищены.</p>
+    </footer>
+</body>
+</html>

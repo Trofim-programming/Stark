@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing App</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            touch-action: none; /* Отключает скроллинг при касаниях */
+          background-color: #1a1a1a; /* Тёмный фон */
+          color: #fff; /* Белый текст */
+        }
+        header {
+          background: linear-gradient(90deg, #ff0000, #990000);
+          padding: 20px 50px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        header h1 {
+          margin: 0;
+          font-size: 1.8em;
+          text-transform: uppercase;
+        }
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+            background: #ddd;
+        }
+        .tools button, .tools input, .tools select {
+            margin: 5px;
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .tools button:hover {
+            background-color: #aaa;
+        }
+        canvas {
+            display: block;
+            margin: 10px auto;
+            border: 1px solid #ccc;
+            touch-action: none; /* Для корректной работы на мобильных */
+        }
+        footer {
+          padding: 10px;
+          background: #990000;
+          color: #fff;
+          text-align: center;
+          width: 100%;
+          position: relative;
+          bottom: 0;
+        }
+        footer {
+          font-size: 0.8em;
+          padding: 10px;
+        }
+        footer {
+          font-size: 0.9em;
+        }
+        footer a {
+          color: #ffcc00;
+          text-decoration: none;
+          font-weight: bold;
+        }
+
+        footer a:hover {
+          text-decoration: underline;
+        }
+
+        footer {
+          text-align: center;
+          padding: 20px;
+          background: #990000;
+          color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mobile-Friendly Drawing App</h1>
+    </header>
+    <div class="tools">
+        <button id="clear">Clear</button>
+        <button id="eraser">Eraser</button>
+        <button id="line">Line</button>
+        <button id="rectangle">Rectangle</button>
+        <button id="circle">Circle</button>
+        <select id="brush-style">
+            <option value="default">Default Brush</option>
+            <option value="dots">Dots</option>
+            <option value="dashed">Dashed Line</option>
+        </select>
+        <input type="color" id="color-picker" value="#000000">
+        <input type="range" id="line-thickness" min="1" max="50" value="5">
+        <button id="lined-paper">Lined Paper</button>
+        <button id="grid-paper">Grid Paper</button>
+        <button id="blank-paper">Blank Paper</button>
+    </div>
+    <canvas id="canvas" width="800" height="600"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const clearBtn = document.getElementById('clear');
+        const eraserBtn = document.getElementById('eraser');
+        const lineBtn = document.getElementById('line');
+        const rectangleBtn = document.getElementById('rectangle');
+        const circleBtn = document.getElementById('circle');
+        const brushStyle = document.getElementById('brush-style');
+        const colorPicker = document.getElementById('color-picker');
+        const lineThickness = document.getElementById('line-thickness');
+        const linedPaper = document.getElementById('lined-paper');
+        const gridPaper = document.getElementById('grid-paper');
+        const blankPaper = document.getElementById('blank-paper');
+
+        let drawing = false;
+        let erasing = false;
+        let startX, startY;
+        let tool = 'brush';
+
+        // Set initial styles
+        ctx.strokeStyle = colorPicker.value;
+        ctx.lineWidth = lineThickness.value;
+
+        // Brush style
+        function setBrushStyle(style) {
+            if (style === 'dots') {
+                ctx.setLineDash([1, 5]);
+            } else if (style === 'dashed') {
+                ctx.setLineDash([10, 10]);
+            } else {
+                ctx.setLineDash([]);
+            }
+        }
+
+        // Draw line
+        function drawLine(x, y) {
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+        }
+
+        // Draw rectangle
+        function drawRectangle(x, y) {
+            ctx.beginPath();
+            ctx.rect(startX, startY, x - startX, y - startY);
+            ctx.stroke();
+        }
+
+        // Draw circle
+        function drawCircle(x, y) {
+            const radius = Math.sqrt(Math.pow(x - startX, 2) + Math.pow(y - startY, 2));
+            ctx.beginPath();
+            ctx.arc(startX, startY, radius, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+
+        // Event listeners for desktop
+        canvas.addEventListener('mousedown', (e) => {
+            drawing = true;
+            startX = e.offsetX;
+            startY = e.offsetY;
+            if (erasing) {
+                ctx.globalCompositeOperation = 'destination-out';
+            } else {
+                ctx.globalCompositeOperation = 'source-over';
+            }
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (!drawing) return;
+            if (tool === 'brush') {
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+            }
+        });
+
+        canvas.addEventListener('mouseup', (e) => {
+            drawing = false;
+            if (tool === 'line') drawLine(e.offsetX, e.offsetY);
+            if (tool === 'rectangle') drawRectangle(e.offsetX, e.offsetY);
+            if (tool === 'circle') drawCircle(e.offsetX, e.offsetY);
+            ctx.beginPath();
+        });
+
+        // Event listeners for touch devices
+        canvas.addEventListener('touchstart', (e) => {
+            const touch = e.touches[0];
+            const rect = canvas.getBoundingClientRect();
+            startX = touch.clientX - rect.left;
+            startY = touch.clientY - rect.top;
+            drawing = true;
+            if (erasing) {
+                ctx.globalCompositeOperation = 'destination-out';
+            } else {
+                ctx.globalCompositeOperation = 'source-over';
+            }
+        });
+
+        canvas.addEventListener('touchmove', (e) => {
+            if (!drawing) return;
+            const touch = e.touches[0];
+            const rect = canvas.getBoundingClientRect();
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+
+            if (tool === 'brush') {
+                ctx.lineTo(x, y);
+                ctx.stroke();
+            }
+            e.preventDefault(); // Отключает скроллинг при рисовании
+        });
+
+        canvas.addEventListener('touchend', () => {
+            drawing = false;
+            ctx.beginPath();
+        });
+
+        // Clear canvas
+        clearBtn.addEventListener('click', () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        });
+
+        // Eraser
+        eraserBtn.addEventListener('click', () => {
+            erasing = true;
+        });
+
+        // Tools
+        lineBtn.addEventListener('click', () => { tool = 'line'; });
+        rectangleBtn.addEventListener('click', () => { tool = 'rectangle'; });
+        circleBtn.addEventListener('click', () => { tool = 'circle'; });
+
+        // Change brush style
+        brushStyle.addEventListener('change', (e) => {
+            setBrushStyle(e.target.value);
+        });
+
+        // Change color
+        colorPicker.addEventListener('input', (e) => {
+            ctx.strokeStyle = e.target.value;
+        });
+
+        // Change line thickness
+        lineThickness.addEventListener('input', (e) => {
+            ctx.lineWidth = e.target.value;
+        });
+
+        // Change background
+        linedPaper.addEventListener('click', () => {
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = '#ccc';
+            for (let y = 20; y < canvas.height; y += 20) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+        });
+
+        gridPaper.addEventListener('click', () => {
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = '#ccc';
+            for (let x = 20; x < canvas.width; x += 20) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+            for (let y = 20; y < canvas.height; y += 20) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+        });
+
+        blankPaper.addEventListener('click', () => {
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        });
+    </script>
+    <footer>
+    <p>© 2024 Jarvis Pro Education. Все права защищены.</p>
+    <a href="/Jarvis-indestris/index.html">Вернуться на главную</a>
+    </footer>
+</body>
+</html>
