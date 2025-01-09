@@ -3,37 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drawing App</title>
+    <title>Mobile-Friendly Drawing App</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            touch-action: none; /* Отключает скроллинг при касаниях */
-          background-color: #1a1a1a; /* Тёмный фон */
-          color: #fff; /* Белый текст */
+            background-color: #1a1a1a; /* Тёмный фон */
+            color: #fff; /* Белый текст */
         }
+
         header {
-          background: linear-gradient(90deg, #ff0000, #990000);
-          padding: 20px 50px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+            background: linear-gradient(90deg, #ff0000, #990000);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
         }
 
         header h1 {
-          margin: 0;
-          font-size: 1.8em;
-          text-transform: uppercase;
+            margin: 0;
+            font-size: 1.8em;
+            text-transform: uppercase;
         }
+
         .tools {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             padding: 10px;
-            background: #ddd;
+            background: #333;
         }
+
         .tools button, .tools input, .tools select {
             margin: 5px;
             padding: 10px;
@@ -42,48 +43,35 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         .tools button:hover {
-            background-color: #aaa;
+            background-color: #555;
         }
+
         canvas {
             display: block;
-            margin: 10px auto;
+            margin: 20px auto;
             border: 1px solid #ccc;
-            touch-action: none; /* Для корректной работы на мобильных */
+            touch-action: none; /* Блокируем жесты только на холсте */
         }
+
         footer {
-          padding: 10px;
-          background: #990000;
-          color: #fff;
-          text-align: center;
-          width: 100%;
-          position: relative;
-          bottom: 0;
+            margin-top: 20px;
+            text-align: center;
+            padding: 20px;
+            background: #990000;
+            color: #fff;
         }
-        footer {
-          font-size: 0.8em;
-          padding: 10px;
-        }
-        footer {
-          font-size: 0.9em;
-        }
+
         footer a {
-          color: #ffcc00;
-          text-decoration: none;
-          font-weight: bold;
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
         }
 
         footer a:hover {
-          text-decoration: underline;
+            text-decoration: underline;
         }
-
-        footer {
-          text-align: center;
-          padding: 20px;
-          background: #990000;
-          color: #fff;
-        }
-
     </style>
 </head>
 <body>
@@ -107,7 +95,11 @@
         <button id="grid-paper">Grid Paper</button>
         <button id="blank-paper">Blank Paper</button>
     </div>
-    <canvas id="canvas" width="800" height="600"></canvas>
+    <canvas id="canvas"></canvas>
+    <footer>
+        <p>© 2024 Jarvis Pro Education. Все права защищены.</p>
+        <a href="index.html">Вернуться на главную</a>
+    </footer>
 
     <script>
         const canvas = document.getElementById('canvas');
@@ -129,11 +121,21 @@
         let startX, startY;
         let tool = 'brush';
 
+        function resizeCanvas() {
+            const deviceWidth = window.innerWidth;
+            const deviceHeight = window.innerHeight;
+
+            canvas.width = deviceWidth - 40; // Уменьшаем ширину для отступов
+            canvas.height = deviceHeight * 0.5; // Холст занимает половину экрана
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
         // Set initial styles
         ctx.strokeStyle = colorPicker.value;
         ctx.lineWidth = lineThickness.value;
 
-        // Brush style
         function setBrushStyle(style) {
             if (style === 'dots') {
                 ctx.setLineDash([1, 5]);
@@ -144,39 +146,11 @@
             }
         }
 
-        // Draw line
-        function drawLine(x, y) {
-            ctx.beginPath();
-            ctx.moveTo(startX, startY);
-            ctx.lineTo(x, y);
-            ctx.stroke();
-        }
-
-        // Draw rectangle
-        function drawRectangle(x, y) {
-            ctx.beginPath();
-            ctx.rect(startX, startY, x - startX, y - startY);
-            ctx.stroke();
-        }
-
-        // Draw circle
-        function drawCircle(x, y) {
-            const radius = Math.sqrt(Math.pow(x - startX, 2) + Math.pow(y - startY, 2));
-            ctx.beginPath();
-            ctx.arc(startX, startY, radius, 0, Math.PI * 2);
-            ctx.stroke();
-        }
-
-        // Event listeners for desktop
         canvas.addEventListener('mousedown', (e) => {
             drawing = true;
             startX = e.offsetX;
             startY = e.offsetY;
-            if (erasing) {
-                ctx.globalCompositeOperation = 'destination-out';
-            } else {
-                ctx.globalCompositeOperation = 'source-over';
-            }
+            ctx.globalCompositeOperation = erasing ? 'destination-out' : 'source-over';
         });
 
         canvas.addEventListener('mousemove', (e) => {
@@ -187,27 +161,19 @@
             }
         });
 
-        canvas.addEventListener('mouseup', (e) => {
+        canvas.addEventListener('mouseup', () => {
             drawing = false;
-            if (tool === 'line') drawLine(e.offsetX, e.offsetY);
-            if (tool === 'rectangle') drawRectangle(e.offsetX, e.offsetY);
-            if (tool === 'circle') drawCircle(e.offsetX, e.offsetY);
             ctx.beginPath();
         });
 
-        // Event listeners for touch devices
         canvas.addEventListener('touchstart', (e) => {
             const touch = e.touches[0];
             const rect = canvas.getBoundingClientRect();
             startX = touch.clientX - rect.left;
             startY = touch.clientY - rect.top;
             drawing = true;
-            if (erasing) {
-                ctx.globalCompositeOperation = 'destination-out';
-            } else {
-                ctx.globalCompositeOperation = 'source-over';
-            }
-        });
+            ctx.globalCompositeOperation = erasing ? 'destination-out' : 'source-over';
+        }, { passive: true });
 
         canvas.addEventListener('touchmove', (e) => {
             if (!drawing) return;
@@ -220,45 +186,38 @@
                 ctx.lineTo(x, y);
                 ctx.stroke();
             }
-            e.preventDefault(); // Отключает скроллинг при рисовании
-        });
+            e.preventDefault();
+        }, { passive: false });
 
         canvas.addEventListener('touchend', () => {
             drawing = false;
             ctx.beginPath();
-        });
+        }, { passive: true });
 
-        // Clear canvas
         clearBtn.addEventListener('click', () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         });
 
-        // Eraser
         eraserBtn.addEventListener('click', () => {
             erasing = true;
         });
 
-        // Tools
         lineBtn.addEventListener('click', () => { tool = 'line'; });
         rectangleBtn.addEventListener('click', () => { tool = 'rectangle'; });
         circleBtn.addEventListener('click', () => { tool = 'circle'; });
 
-        // Change brush style
         brushStyle.addEventListener('change', (e) => {
             setBrushStyle(e.target.value);
         });
 
-        // Change color
         colorPicker.addEventListener('input', (e) => {
             ctx.strokeStyle = e.target.value;
         });
 
-        // Change line thickness
         lineThickness.addEventListener('input', (e) => {
             ctx.lineWidth = e.target.value;
         });
 
-        // Change background
         linedPaper.addEventListener('click', () => {
             ctx.fillStyle = '#fff';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -294,9 +253,6 @@
             ctx.fillRect(0, 0, canvas.width, canvas.height);
         });
     </script>
-    <footer>
-    <p>© 2024 Jarvis Pro Education. Все права защищены.</p>
-    <a href="index.html">Вернуться на главную</a>
-    </footer>
 </body>
 </html>
+
