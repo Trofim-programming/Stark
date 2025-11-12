@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности - Jarvis Pro Education</title>
+    <meta name="description" content="Политика конфиденциальности Jarvis Pro Education. Узнайте, как мы собираем, используем и защищаем ваши персональные данные.">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-top: 2.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        ul, ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), #1e40af);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: #e5e7eb;
+        }
+
+        /* Main Content */
+        .content-section {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .last-updated {
+            background: var(--bg-light);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .last-updated strong {
+            color: var(--primary-color);
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary-color);
+            margin: 1.5rem 0;
+        }
+
+        .warning-box {
+            background: #fef3cd;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin: 1.5rem 0;
+        }
+
+        /* Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--bg-white);
+            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            background: var(--bg-light);
+            font-weight: 600;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Navigation */
+        .page-nav {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 1rem;
+        }
+
+        .page-nav h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            padding: 0.5rem 0;
+            display: block;
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .content-section {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .header {
+                padding: 2rem 0;
+            }
+
+            .data-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .header, .footer, .page-nav {
+                display: none;
+            }
+
+            .content-section {
+                box-shadow: none;
+                padding: 0;
+            }
+
+            a {
+                color: var(--text-dark);
+                text-decoration: underline;
+            }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-dark: #f9fafb;
+                --text-light: #d1d5db;
+                --bg-light: #1f2937;
+                --bg-white: #111827;
+                --border-color: #374151;
+            }
+
+            body {
+                background-color: #111827;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>Политика конфиденциальности</h1>
+                <p>Jarvis Pro Education</p>
+                <a href="index.html" class="back-link">
+                    <span>←</span> Вернуться на главную
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-nav">
+            <h3>Содержание</h3>
+            <ul class="nav-links">
+                <li><a href="#intro">1. Введение</a></li>
+                <li><a href="#data-collection">2. Сбор информации</a></li>
+                <li><a href="#data-usage">3. Использование информации</a></li>
+                <li><a href="#cookies">4. Файлы cookie</a></li>
+                <li><a href="#adsense">5. Google AdSense</a></li>
+                <li><a href="#data-protection">6. Защита данных</a></li>
+                <li><a href="#user-rights">7. Права пользователей</a></li>
+                <li><a href="#children">8. Дети</a></li>
+                <li><a href="#changes">9. Изменения политики</a></li>
+                <li><a href="#contact">10. Контакты</a></li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <div class="last-updated">
+                <strong>Последнее обновление:</strong> 15 января 2024 года
+            </div>
+
+            <section id="intro">
+                <h2>1. Введение</h2>
+                <p>Jarvis Pro Education ценит вашу конфиденциальность и стремится защищать ваши персональные данные. Настоящая Политика конфиденциальности объясняет, как мы собираем, используем, раскрываем и защищаем информацию о вас при использовании нашего веб-сайта и услуг.</p>
+                
+                <div class="info-box">
+                    <p><strong>Используя наш сайт, вы соглашаетесь с условиями данной Политики конфиденциальности.</strong> Если вы не согласны с этими условиями, пожалуйста, не используйте наш сайт.</p>
+                </div>
+            </section>
+
+            <section id="data-collection">
+                <h2>2. Сбор информации</h2>
+                <p>Мы собираем несколько типов информации от и о пользователях нашего Сайта:</p>
+
+                <h3>2.1. Информация, которую вы предоставляете напрямую</h3>
+                <ul>
+                    <li>Контактная информация (имя, email, телефон) при регистрации на курсы</li>
+                    <li>Учебные данные и прогресс при использовании наших образовательных услуг</li>
+                    <li>Сообщения и обращения в службу поддержки</li>
+                    <li>Платежная информация (обрабатывается через защищенные платежные системы)</li>
+                </ul>
+
+                <h3>2.2. Автоматически собираемая информация</h3>
+                <ul>
+                    <li>Данные об использовании сайта (просмотренные страницы, время посещения)</li>
+                    <li>IP-адрес и данные о браузере</li>
+                    <li>Информация об устройстве (тип, операционная система)</li>
+                    <li>Файлы cookie и аналогичные технологии</li>
+                </ul>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Тип данных</th>
+                            <th>Примеры</th>
+                            <th>Цель сбора</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Персональные данные</td>
+                            <td>Имя, email, телефон</td>
+                            <td>Регистрация, связь, обслуживание</td>
+                        </tr>
+                        <tr>
+                            <td>Учебные данные</td>
+                            <td>Прогресс, выполненные задания</td>
+                            <td>Персонализация обучения</td>
+                        </tr>
+                        <tr>
+                            <td>Технические данные</td>
+                            <td>IP-адрес, тип браузера</td>
+                            <td>Аналитика, безопасность</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="data-usage">
+                <h2>3. Использование информации</h2>
+                <p>Мы используем собранную информацию для следующих целей:</p>
+                
+                <ul>
+                    <li><strong>Предоставление услуг:</strong> Регистрация на курсы, доступ к учебным материалам</li>
+                    <li><strong>Персонализация:</strong> Адаптация контента под ваши потребности и прогресс</li>
+                    <li><strong>Коммуникация:</strong> Ответы на вопросы, уведомления о курсах</li>
+                    <li><strong>Улучшение сервиса:</strong> Анализ использования для улучшения наших услуг</li>
+                    <li><strong>Безопасность:</strong> Защита от мошенничества и несанкционированного доступа</li>
+                    <li><strong>Маркетинг:</strong> Информирование о новых курсах и акциях (только с вашего согласия)</li>
+                </ul>
+
+                <div class="info-box">
+                    <p><strong>Мы не продаем и не передаем ваши персональные данные третьим лицам</strong> для их маркетинговых целей без вашего явного согласия.</p>
+                </div>
+            </section>
+
+            <section id="cookies">
+                <h2>4. Файлы cookie и аналогичные технологии</h2>
+                <p>Мы используем файлы cookie и аналогичные технологии для улучшения работы пользователей на нашем Сайте.</p>
+
+                <h3>4.1. Типы используемых cookie:</h3>
+                <ul>
+                    <li><strong>Необходимые cookie:</strong> Обеспечивают работу основных функций сайта</li>
+                    <li><strong>Функциональные cookie:</strong> Запоминают ваши предпочтения и настройки</li>
+                    <li><strong>Аналитические cookie:</strong> Помогают нам понимать, как используется сайт</li>
+                    <li><strong>Рекламные cookie:</strong> Используются для показа релевантной рекламы</li>
+                </ul>
+
+                <h3>4.2. Управление cookie:</h3>
+                <p>Вы можете управлять настройками cookie через ваш браузер. Однако отключение некоторых cookie может повлиять на функциональность сайта.</p>
+            </section>
+
+            <section id="adsense">
+                <h2>5. Google AdSense</h2>
+                <p>Наш сайт использует Google AdSense для показа рекламы. Google использует файлы cookie для показа рекламы на основе предыдущих посещений пользователями нашего веб-сайта и других веб-сайтов.</p>
+
+                <div class="warning-box">
+                    <p><strong>Внимание:</strong> Google использует партнерские сети для показа рекламы. Вы можете отключить персонализированную рекламу в <a href="https://adssettings.google.com" target="_blank">настройках рекламы Google</a>.</p>
+                </div>
+
+                <h3>5.1. Как Google использует данные:</h3>
+                <ul>
+                    <li>Показ релевантной рекламы на нашем сайте и других сайтах</li>
+                    <li>Измерение эффективности рекламных кампаний</li>
+                    <li>Предотвращение показа повторяющейся рекламы</li>
+                </ul>
+
+                <p>Для получения дополнительной информации о том, как Google использует данные, посетите <a href="https://policies.google.com/technologies/partner-sites" target="_blank">страницу политики конфиденциальности Google</a>.</p>
+            </section>
+
+            <section id="data-protection">
+                <h2>6. Защита данных</h2>
+                <p>Мы реализуем соответствующие технические и организационные меры безопасности для защиты ваших персональных данных от несанкционированного доступа, изменения, раскрытия или уничтожения.</p>
+
+                <h3>6.1. Меры безопасности включают:</h3>
+                <ul>
+                    <li>Шифрование передаваемых данных (SSL/TLS)</li>
+                    <li>Регулярное обновление систем безопасности</li>
+                    <li>Ограниченный доступ к персональным данным</li>
+                    <li>Регулярное резервное копирование данных</li>
+                </ul>
+
+                <p>Несмотря на наши усилия, ни один метод передачи через интернет или метод электронного хранения не является на 100% безопасным.</p>
+            </section>
+
+            <section id="user-rights">
+                <h2>7. Права пользователей</h2>
+                <p>Вы имеете следующие права в отношении ваших персональных данных:</p>
+
+                <ul>
+                    <li><strong>Право на доступ:</strong> Вы можете запросить копию ваших персональных данных</li>
+                    <li><strong>Право на исправление:</strong> Вы можете исправить неточные данные</li>
+                    <li><strong>Право на удаление:</strong> Вы можете запросить удаление ваших данных</li>
+                    <li><strong>Право на ограничение обработки:</strong> Вы можете ограничить обработку ваших данных</li>
+                    <li><strong>Право на перенос данных:</strong> Вы можете запросить передачу ваших данных</li>
+                    <li><strong>Право на возражение:</strong> Вы можете возразить против обработки данных</li>
+                </ul>
+
+                <p>Для реализации ваших прав, пожалуйста, свяжитесь с нами через контактную информацию, указанную ниже.</p>
+            </section>
+
+            <section id="children">
+                <h2>8. Дети</h2>
+                <p>Наш Сайт не предназначен для детей младше 13 лет. Мы сознательно не собираем персональную информацию от детей младше 13 лет.</p>
+
+                <div class="warning-box">
+                    <p>Если вы являетесь родителем или опекуном и считаете, что ваш ребенок предоставил нам персональную информацию, пожалуйста, свяжитесь с нами, и мы удалим такую информацию.</p>
+                </div>
+            </section>
+
+            <section id="changes">
+                <h2>9. Изменения политики конфиденциальности</h2>
+                <p>Мы можем периодически обновлять настоящую Политику конфиденциальности. Мы уведомим вас о любых изменениях, разместив новую Политику конфиденциальности на этой странице.</p>
+
+                <p>Мы уведомим вас по электронной почте и/или через заметное уведомление на нашем Сайте до того, как изменение вступит в силу, и обновим дату "Последнего обновления" в верхней части настоящей Политики конфиденциальности.</p>
+
+                <p>Вам рекомендуется периодически просматривать настоящую Политику конфиденциальности на предмет любых изменений.</p>
+            </section>
+
+            <section id="contact">
+                <h2>10. Контакты</h2>
+                <p>Если у вас есть какие-либо вопросы о настоящей Политике конфиденциальности, пожалуйста, свяжитесь с нами:</p>
+
+                <ul>
+                    <li><strong>По электронной почте:</strong> privacy@jarvisproeducation.com</li>
+                    <li><strong>Через форму обратной связи:</strong> На странице контактов</li>
+                    <li><strong>По почте:</strong> г. Москва, ул. Образовательная, д. 1</li>
+                </ul>
+
+                <div class="info-box">
+                    <p>Мы стремимся ответить на все законные запросы в течение 30 дней.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Jarvis Pro Education</h3>
+                    <p>Современная образовательная платформа для обучения программированию и IT-технологиям.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Курсы</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#courses">Python для начинающих</a></li>
+                        <li><a href="index.html#courses">Веб-разработка</a></li>
+                        <li><a href="index.html#courses">Искусственный интеллект</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Правовая информация</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="terms.html">Условия использования</a></li>
+                        <li><a href="cookies.html">Политика cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#contact">Форма обратной связи</a></li>
+                        <li><a href="mailto:info@jarvisproeducation.com">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jarvis Pro Education. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Print functionality
+        function printPolicy() {
+            window.print();
+        }
+
+        // Add print button if needed
+        document.addEventListener('DOMContentLoaded', function() {
+            const printBtn = document.createElement('button');
+            printBtn.textContent = 'Распечатать политику';
+            printBtn.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                background: var(--primary-color);
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                z-index: 1000;
+            `;
+            printBtn.onclick = printPolicy;
+            document.body.appendChild(printBtn);
+        });
+    </script>
+</body>
+</html>
