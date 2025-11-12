@@ -7,17 +7,19 @@
     <meta name="description" content="Политика конфиденциальности Jarvis Pro Education. Узнайте, как мы собираем, используем и защищаем ваши персональные данные.">
     
     <style>
-        /* CSS Variables */
+        /* CSS Variables с вашими оригинальными цветами */
         :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-            --text-dark: #1f2937;
-            --text-light: #6b7280;
-            --bg-light: #f9fafb;
-            --bg-white: #ffffff;
-            --border-color: #e5e7eb;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --radius: 8px;
+            --primary-red: #ff0000;
+            --primary-dark-red: #990000;
+            --accent-yellow: #ffcc00;
+            --bg-dark: #1a1a1a;
+            --bg-card: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #888888;
+            --border: #444444;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+            --radius: 10px;
             --transition: all 0.3s ease;
         }
 
@@ -33,10 +35,10 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.7;
-            color: var(--text-dark);
-            background-color: var(--bg-white);
+            color: var(--text-primary);
+            background-color: var(--bg-dark);
         }
 
         /* Typography */
@@ -44,7 +46,7 @@
             font-weight: 700;
             line-height: 1.3;
             margin-bottom: 1rem;
-            color: var(--text-dark);
+            color: var(--text-primary);
         }
 
         h1 {
@@ -56,7 +58,8 @@
             font-size: 1.75rem;
             margin-top: 2.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
+            border-bottom: 2px solid var(--border);
+            color: var(--accent-yellow);
         }
 
         h3 {
@@ -69,13 +72,13 @@
         }
 
         a {
-            color: var(--primary-color);
+            color: var(--accent-yellow);
             text-decoration: none;
             transition: var(--transition);
         }
 
         a:hover {
-            color: var(--primary-dark);
+            color: #ffd700;
             text-decoration: underline;
         }
 
@@ -97,8 +100,8 @@
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, var(--primary-color), #1e40af);
-            color: white;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-dark-red));
+            color: var(--text-primary);
             padding: 3rem 0;
             margin-bottom: 3rem;
         }
@@ -111,84 +114,58 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: white;
+            color: var(--text-primary);
             margin-top: 1rem;
             font-weight: 500;
         }
 
         .back-link:hover {
-            color: #e5e7eb;
+            color: var(--accent-yellow);
         }
 
         /* Main Content */
         .content-section {
-            background: var(--bg-white);
+            background: var(--bg-card);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             padding: 3rem;
             margin-bottom: 3rem;
+            border: 1px solid var(--border);
         }
 
         .last-updated {
-            background: var(--bg-light);
+            background: rgba(255, 255, 255, 0.1);
             padding: 1rem 1.5rem;
             border-radius: var(--radius);
             margin-bottom: 2rem;
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid var(--primary-red);
         }
 
         .last-updated strong {
-            color: var(--primary-color);
+            color: var(--accent-yellow);
         }
 
         /* Info Boxes */
         .info-box {
-            background: var(--bg-light);
+            background: rgba(255, 255, 255, 0.1);
             padding: 1.5rem;
             border-radius: var(--radius);
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid var(--primary-red);
             margin: 1.5rem 0;
         }
 
         .warning-box {
-            background: #fef3cd;
-            border-left: 4px solid #f59e0b;
+            background: rgba(255, 204, 0, 0.1);
+            border-left: 4px solid var(--accent-yellow);
             padding: 1.5rem;
             border-radius: var(--radius);
             margin: 1.5rem 0;
         }
 
-        /* Table */
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: var(--bg-white);
-            box-shadow: var(--shadow);
-            border-radius: var(--radius);
-            overflow: hidden;
-        }
-
-        .data-table th,
-        .data-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .data-table th {
-            background: var(--bg-light);
-            font-weight: 600;
-        }
-
-        .data-table tr:last-child td {
-            border-bottom: none;
-        }
-
         /* Footer */
         .footer {
-            background: var(--text-dark);
-            color: white;
+            background: var(--primary-dark-red);
+            color: var(--text-primary);
             padding: 3rem 0;
             margin-top: 4rem;
         }
@@ -201,7 +178,7 @@
         }
 
         .footer-column h3 {
-            color: white;
+            color: var(--accent-yellow);
             margin-bottom: 1.5rem;
         }
 
@@ -215,54 +192,18 @@
         }
 
         .footer-links a {
-            color: #d1d5db;
+            color: var(--text-secondary);
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--accent-yellow);
         }
 
         .footer-bottom {
-            border-top: 1px solid #374151;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             padding-top: 2rem;
             text-align: center;
-            color: #9ca3af;
-        }
-
-        /* Navigation */
-        .page-nav {
-            background: var(--bg-light);
-            padding: 1.5rem;
-            border-radius: var(--radius);
-            margin-bottom: 2rem;
-            position: sticky;
-            top: 1rem;
-        }
-
-        .page-nav h3 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            list-style: none;
-            padding: 0;
-        }
-
-        .nav-links li {
-            margin-bottom: 0.5rem;
-        }
-
-        .nav-links a {
-            color: var(--text-dark);
-            padding: 0.5rem 0;
-            display: block;
-            border-bottom: 1px solid transparent;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-            border-bottom-color: var(--primary-color);
+            color: var(--text-muted);
         }
 
         /* Responsive Design */
@@ -286,11 +227,6 @@
             .header {
                 padding: 2rem 0;
             }
-
-            .data-table {
-                display: block;
-                overflow-x: auto;
-            }
         }
 
         @media (max-width: 480px) {
@@ -300,38 +236,6 @@
 
             .footer-content {
                 grid-template-columns: 1fr;
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            .header, .footer, .page-nav {
-                display: none;
-            }
-
-            .content-section {
-                box-shadow: none;
-                padding: 0;
-            }
-
-            a {
-                color: var(--text-dark);
-                text-decoration: underline;
-            }
-        }
-
-        /* Dark Mode Support */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --text-dark: #f9fafb;
-                --text-light: #d1d5db;
-                --bg-light: #1f2937;
-                --bg-white: #111827;
-                --border-color: #374151;
-            }
-
-            body {
-                background-color: #111827;
             }
         }
     </style>
@@ -351,22 +255,6 @@
     </header>
 
     <div class="container">
-        <div class="page-nav">
-            <h3>Содержание</h3>
-            <ul class="nav-links">
-                <li><a href="#intro">1. Введение</a></li>
-                <li><a href="#data-collection">2. Сбор информации</a></li>
-                <li><a href="#data-usage">3. Использование информации</a></li>
-                <li><a href="#cookies">4. Файлы cookie</a></li>
-                <li><a href="#adsense">5. Google AdSense</a></li>
-                <li><a href="#data-protection">6. Защита данных</a></li>
-                <li><a href="#user-rights">7. Права пользователей</a></li>
-                <li><a href="#children">8. Дети</a></li>
-                <li><a href="#changes">9. Изменения политики</a></li>
-                <li><a href="#contact">10. Контакты</a></li>
-            </ul>
-        </div>
-
         <div class="content-section">
             <div class="last-updated">
                 <strong>Последнее обновление:</strong> 15 января 2024 года
@@ -400,33 +288,6 @@
                     <li>Информация об устройстве (тип, операционная система)</li>
                     <li>Файлы cookie и аналогичные технологии</li>
                 </ul>
-
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Тип данных</th>
-                            <th>Примеры</th>
-                            <th>Цель сбора</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Персональные данные</td>
-                            <td>Имя, email, телефон</td>
-                            <td>Регистрация, связь, обслуживание</td>
-                        </tr>
-                        <tr>
-                            <td>Учебные данные</td>
-                            <td>Прогресс, выполненные задания</td>
-                            <td>Персонализация обучения</td>
-                        </tr>
-                        <tr>
-                            <td>Технические данные</td>
-                            <td>IP-адрес, тип браузера</td>
-                            <td>Аналитика, безопасность</td>
-                        </tr>
-                    </tbody>
-                </table>
             </section>
 
             <section id="data-usage">
@@ -439,7 +300,6 @@
                     <li><strong>Коммуникация:</strong> Ответы на вопросы, уведомления о курсах</li>
                     <li><strong>Улучшение сервиса:</strong> Анализ использования для улучшения наших услуг</li>
                     <li><strong>Безопасность:</strong> Защита от мошенничества и несанкционированного доступа</li>
-                    <li><strong>Маркетинг:</strong> Информирование о новых курсах и акциях (только с вашего согласия)</li>
                 </ul>
 
                 <div class="info-box">
@@ -458,9 +318,6 @@
                     <li><strong>Аналитические cookie:</strong> Помогают нам понимать, как используется сайт</li>
                     <li><strong>Рекламные cookie:</strong> Используются для показа релевантной рекламы</li>
                 </ul>
-
-                <h3>4.2. Управление cookie:</h3>
-                <p>Вы можете управлять настройками cookie через ваш браузер. Однако отключение некоторых cookie может повлиять на функциональность сайта.</p>
             </section>
 
             <section id="adsense">
@@ -470,13 +327,6 @@
                 <div class="warning-box">
                     <p><strong>Внимание:</strong> Google использует партнерские сети для показа рекламы. Вы можете отключить персонализированную рекламу в <a href="https://adssettings.google.com" target="_blank">настройках рекламы Google</a>.</p>
                 </div>
-
-                <h3>5.1. Как Google использует данные:</h3>
-                <ul>
-                    <li>Показ релевантной рекламы на нашем сайте и других сайтах</li>
-                    <li>Измерение эффективности рекламных кампаний</li>
-                    <li>Предотвращение показа повторяющейся рекламы</li>
-                </ul>
 
                 <p>Для получения дополнительной информации о том, как Google использует данные, посетите <a href="https://policies.google.com/technologies/partner-sites" target="_blank">страницу политики конфиденциальности Google</a>.</p>
             </section>
@@ -492,8 +342,6 @@
                     <li>Ограниченный доступ к персональным данным</li>
                     <li>Регулярное резервное копирование данных</li>
                 </ul>
-
-                <p>Несмотря на наши усилия, ни один метод передачи через интернет или метод электронного хранения не является на 100% безопасным.</p>
             </section>
 
             <section id="user-rights">
@@ -505,33 +353,12 @@
                     <li><strong>Право на исправление:</strong> Вы можете исправить неточные данные</li>
                     <li><strong>Право на удаление:</strong> Вы можете запросить удаление ваших данных</li>
                     <li><strong>Право на ограничение обработки:</strong> Вы можете ограничить обработку ваших данных</li>
-                    <li><strong>Право на перенос данных:</strong> Вы можете запросить передачу ваших данных</li>
                     <li><strong>Право на возражение:</strong> Вы можете возразить против обработки данных</li>
                 </ul>
-
-                <p>Для реализации ваших прав, пожалуйста, свяжитесь с нами через контактную информацию, указанную ниже.</p>
-            </section>
-
-            <section id="children">
-                <h2>8. Дети</h2>
-                <p>Наш Сайт не предназначен для детей младше 13 лет. Мы сознательно не собираем персональную информацию от детей младше 13 лет.</p>
-
-                <div class="warning-box">
-                    <p>Если вы являетесь родителем или опекуном и считаете, что ваш ребенок предоставил нам персональную информацию, пожалуйста, свяжитесь с нами, и мы удалим такую информацию.</p>
-                </div>
-            </section>
-
-            <section id="changes">
-                <h2>9. Изменения политики конфиденциальности</h2>
-                <p>Мы можем периодически обновлять настоящую Политику конфиденциальности. Мы уведомим вас о любых изменениях, разместив новую Политику конфиденциальности на этой странице.</p>
-
-                <p>Мы уведомим вас по электронной почте и/или через заметное уведомление на нашем Сайте до того, как изменение вступит в силу, и обновим дату "Последнего обновления" в верхней части настоящей Политики конфиденциальности.</p>
-
-                <p>Вам рекомендуется периодически просматривать настоящую Политику конфиденциальности на предмет любых изменений.</p>
             </section>
 
             <section id="contact">
-                <h2>10. Контакты</h2>
+                <h2>8. Контакты</h2>
                 <p>Если у вас есть какие-либо вопросы о настоящей Политике конфиденциальности, пожалуйста, свяжитесь с нами:</p>
 
                 <ul>
@@ -568,7 +395,6 @@
                     <ul class="footer-links">
                         <li><a href="privacy-policy.html">Политика конфиденциальности</a></li>
                         <li><a href="terms.html">Условия использования</a></li>
-                        <li><a href="cookies.html">Политика cookies</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -598,31 +424,6 @@
                     });
                 }
             });
-        });
-
-        // Print functionality
-        function printPolicy() {
-            window.print();
-        }
-
-        // Add print button if needed
-        document.addEventListener('DOMContentLoaded', function() {
-            const printBtn = document.createElement('button');
-            printBtn.textContent = 'Распечатать политику';
-            printBtn.style.cssText = `
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                padding: 10px 20px;
-                background: var(--primary-color);
-                color: white;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                z-index: 1000;
-            `;
-            printBtn.onclick = printPolicy;
-            document.body.appendChild(printBtn);
         });
     </script>
 </body>
