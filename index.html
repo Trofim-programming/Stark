@@ -3,284 +3,961 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Программирование с нами</title>
+    <title>Jarvis Pro Education - Обучение программированию и искусственному интеллекту</title>
+    <meta name="description" content="Jarvis Pro Education - современная образовательная платформа для обучения программированию, искусственному интеллекту и разработке программного обеспечения. Курсы для начинающих и продвинутых.">
+    <meta name="keywords" content="программирование, обучение, курсы, искусственный интеллект, IT, разработка, Python, JavaScript">
+    
+    <!-- Structured Data для SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Jarvis Pro Education",
+        "description": "Образовательная платформа для обучения программированию и искусственному интеллекту",
+        "url": "https://jarvisproeducation.com",
+        "logo": "https://jarvisproeducation.com/logo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "info@jarvisproeducation.com",
+            "contactType": "customer service"
+        },
+        "sameAs": []
+    }
+    </script>
+    
+    <!-- Preload важных ресурсов -->
+    <link rel="preload" as="style" href="style.css">
+    
     <style>
-        body {
+        /* CSS Variables для легкого управления темингом */
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --accent-color: #f59e0b;
+            --accent-dark: #d97706;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
-            color: #fff;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
             overflow-x: hidden;
         }
 
-        header {
-            background: linear-gradient(90deg, #ff0000, #990000);
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 1.8em;
-            text-transform: uppercase;
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
         }
 
-        header nav a {
-            color: white;
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--primary-color);
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            font-size: 1em;
+            transition: var(--transition);
         }
 
-        header nav a:hover {
-            color: #ffcc00;
+        a:hover {
+            color: var(--primary-dark);
         }
 
-        .hero {
-            position: relative;
-            text-align: center;
-            padding: 100px 20px;
-            background: url('service9.jpg') no-repeat center center/cover;
-        }
-
-        .hero h2 {
-            font-size: 3em;
-            margin: 0 0 20px;
-            color: #ffcc00;
-        }
-
-        .hero p {
-            font-size: 1.5em;
-            line-height: 1.5;
-            max-width: 800px;
+        /* Utility Classes */
+        .container {
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 1rem;
         }
 
-        .hero button {
-            padding: 15px 30px;
-            font-size: 1.2em;
-            margin-top: 30px;
-            color: #fff;
-            background: #ff0000;
+        .text-center {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
             border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
             cursor: pointer;
-            border-radius: 5px;
+            transition: var(--transition);
+            text-align: center;
         }
 
-        .hero button:hover {
-            background: #990000;
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
 
-        section {
-            padding: 50px 20px;
+        .btn-accent {
+            background-color: var(--accent-color);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--accent-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .section {
+            padding: 4rem 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5em;
-            color: #ffcc00;
+            margin-bottom: 3rem;
+            position: relative;
         }
 
-        .features {
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
         }
 
-        .feature {
-            max-width: 300px;
-            margin: 20px;
-            text-align: center;
-            border: 2px solid #ff0000;
-            padding: 20px;
-            border-radius: 10px;
-            background: rgba(255, 0, 0, 0.1);
-        }
-
-        p1 {
-            font-size: 1.5em;
-            line-height: 1.5;
-            max-width: 800px;
-            margin: 0 auto;
+        .logo {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: var(--radius);
+            display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            display: block;
-        }
-
-        .feature img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #990000;
-            color: #fff;
-        }
-
-        footer a {
-            color: #ffcc00;
-            text-decoration: none;
+            color: white;
             font-weight: bold;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
         }
 
-        /* Медиазапросы для мобильных устройств */
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L1000,0 L1000,1000 L0,1000 Z"></path></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Courses Section */
+        .courses {
+            background-color: var(--bg-light);
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .course-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 1.5rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: var(--bg-white);
+            box-shadow: var(--shadow-lg);
+            z-index: 1001;
+            transition: var(--transition);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav-close {
+            align-self: flex-end;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-nav-link {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                padding: 15px;
+            .nav-links {
+                display: none;
             }
 
-            header h1 {
-                font-size: 1.5em;
-                text-align: center;
+            .mobile-menu-btn {
+                display: block;
             }
 
-            header nav {
-                display: flex;
+            .hero-buttons {
                 flex-direction: column;
                 align-items: center;
             }
 
-            header nav a {
-                margin: 10px 0;
-                font-size: 1.2em;
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
             }
 
-            .hero {
-                padding: 80px 20px;
-            }
-
-            .hero h2 {
-                font-size: 2.5em;
-            }
-
-            .hero p {
-                font-size: 1.2em;
-            }
-
-            .hero button {
-                font-size: 1em;
-                padding: 12px 25px;
-            }
-
-            .features {
-                justify-content: center;
-                flex-direction: column;
-            }
-
-            .feature {
-                max-width: 90%;
-                margin: 15px 0;
-            }
-
-            .section-title {
-                font-size: 2em;
+            .section {
+                padding: 3rem 0;
             }
         }
 
         @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.3em;
+            .container {
+                padding: 0 0.75rem;
             }
 
-            header nav a {
-                font-size: 1em;
+            .feature-card, .course-card, .testimonial-card {
+                padding: 1.5rem;
             }
 
-            .hero h2 {
-                font-size: 2em;
+            .hero {
+                padding: 4rem 0;
+            }
+        }
+
+        /* High DPI Screens */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            /* Улучшения для Retina-дисплеев */
+        }
+
+        /* Print Styles */
+        @media print {
+            .btn, .mobile-menu-btn, .hero-buttons, footer {
+                display: none !important;
             }
 
-            .hero p {
-                font-size: 1.1em;
+            .hero {
+                background: white !important;
+                color: black !important;
+                padding: 2rem 0 !important;
             }
 
-            .hero button {
-                font-size: 1em;
-                padding: 12px 20px;
-                width: 100%;
+            .section {
+                padding: 2rem 0 !important;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
 
-            .features {
-                padding: 0 10px;
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-dark: #f9fafb;
+                --text-light: #d1d5db;
+                --bg-light: #111827;
+                --bg-white: #1f2937;
             }
 
-            .feature {
-                max-width: 100%;
-                padding: 15px;
-                font-size: 1em;
-            }
-
-            .section-title {
-                font-size: 1.8em;
+            body {
+                background-color: #111827;
+                color: #f9fafb;
             }
         }
     </style>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1861780787527911" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>Jarvis Pro Education</h1>
-        <nav>
-            <a href="#about">О нас</a>
-            <a href="#services">Сервисы</a>
-            <a href="courses.html">Курсы</a>
-            <a href="products.html">Товары</a>
-            <a href="contacts.html">Контакты</a>
-        </nav>
+        <div class="container header-container">
+            <a href="/" class="logo">
+                <div class="logo-icon">J</div>
+                <span>Jarvis Pro Education</span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#about" class="nav-link">О нас</a>
+                <a href="#courses" class="nav-link">Курсы</a>
+                <a href="#features" class="nav-link">Преимущества</a>
+                <a href="#testimonials" class="nav-link">Отзывы</a>
+                <a href="#contact" class="nav-link">Контакты</a>
+                <a href="#" class="btn btn-outline">Войти</a>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню">
+                <span>☰</span>
+            </button>
+        </div>
     </header>
 
+    <!-- Mobile Navigation -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Закрыть меню">×</button>
+        <div class="mobile-nav-links">
+            <a href="#about" class="mobile-nav-link">О нас</a>
+            <a href="#courses" class="mobile-nav-link">Курсы</a>
+            <a href="#features" class="mobile-nav-link">Преимущества</a>
+            <a href="#testimonials" class="mobile-nav-link">Отзывы</a>
+            <a href="#contact" class="mobile-nav-link">Контакты</a>
+            <a href="#" class="btn btn-outline">Войти</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
     <section class="hero">
-        <h2>Стань мастером программирования</h2>
-        <p>Учись создавать интеллектуальные системы как Джарвис. Программирование - ключ к будущему!</p>
-        <a href="learn_more.html"><button>Узнать больше</button></a>
-    </section>
-
-    <section id="about">
-        <h2 class="section-title">О нас</h2>
-        <p1>Мы обучаем программированию, создавая инновационные инструменты и технологии.</p1>
-        <p1>Наша цель - вдохновлять и поддерживать таланты детей</p1>
-    </section>
-
-    <section id="services">
-        <h2 class="section-title">Наши сервисы</h2>
-        <div class="features">
-            <div class="feature">
-                <img src="service3.jpg" alt="Индивидуальные консультации">
-                <h3>Индивидуальные консультации</h3>
-                <p>Персональный подход к каждому ученику.</p>
-            </div>
-            <div class="feature">
-                <img src="service2.jpg" alt="Онлайн-курсы">
-                <h3>Онлайн-курсы</h3>
-                <p>Изучайте программирование в любое время.</p>
-            </div>
-            <div class="feature">
-                <img src="service1.jpg" alt="Сервисы ИИ">
-                <h3>Сервисы ИИ</h3>
-                <p>Используйте наши готовые решения для бизнеса.</p>
+        <div class="container hero-content">
+            <h1>Стань мастером программирования с Jarvis Pro Education</h1>
+            <p>Освойте востребованные IT-навыки с помощью наших курсов по программированию, искусственному интеллекту и веб-разработке. Обучение для начинающих и продвинутых.</p>
+            <div class="hero-buttons">
+                <a href="#courses" class="btn">Выбрать курс</a>
+                <a href="#contact" class="btn btn-outline">Бесплатная консультация</a>
             </div>
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">О нас</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Наша миссия</h3>
+                    <p>Мы делаем программирование доступным для каждого, независимо от возраста и начального уровня подготовки. Наша цель - помочь вам освоить IT-профессию и построить успешную карьеру.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Наш подход</h3>
+                    <p>Сочетание теории и практики, индивидуальный подход к каждому студенту, проектно-ориентированное обучение и поддержка на всех этапах.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Почему мы</h3>
+                    <p>Опытные преподаватели-практики, современные методики обучения, актуальные технологии и помощь в трудоустройстве после завершения курсов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="section courses">
+        <div class="container">
+            <h2 class="section-title">Наши курсы</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="course-image">🐍</div>
+                    <div class="course-content">
+                        <h3>Python для начинающих</h3>
+                        <p>Освойте один из самых популярных языков программирования. От основ до создания реальных проектов.</p>
+                        <div class="course-meta">
+                            <span>Длительность: 3 месяца</span>
+                            <span>Уровень: Начальный</span>
+                        </div>
+                        <a href="#" class="btn" style="margin-top: 1rem; display: block;">Подробнее</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">🌐</div>
+                    <div class="course-content">
+                        <h3>Веб-разработка</h3>
+                        <p>Полный курс по созданию современных веб-сайтов и приложений. HTML, CSS, JavaScript и фреймворки.</p>
+                        <div class="course-meta">
+                            <span>Длительность: 4 месяца</span>
+                            <span>Уровень: Начальный</span>
+                        </div>
+                        <a href="#" class="btn" style="margin-top: 1rem; display: block;">Подробнее</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">🤖</div>
+                    <div class="course-content">
+                        <h3>Искусственный интеллект</h3>
+                        <p>Погрузитесь в мир машинного обучения и нейросетей. Создавайте умные приложения и алгоритмы.</p>
+                        <div class="course-meta">
+                            <span>Длительность: 6 месяцев</span>
+                            <span>Уровень: Продвинутый</span>
+                        </div>
+                        <a href="#" class="btn" style="margin-top: 1rem; display: block;">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title">Наши преимущества</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3>Опытные преподаватели</h3>
+                    <p>Наши инструкторы - практикующие разработчики с многолетним опытом работы в ведущих IT-компаниях.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Современные материалы</h3>
+                    <p>Актуальные учебные программы, регулярно обновляемые в соответствии с последними трендами IT-индустрии.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Поддержка 24/7</h3>
+                    <p>Мы всегда на связи, чтобы ответить на ваши вопросы и помочь с решением задач в процессе обучения.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Помощь с трудоустройством</h3>
+                    <p>После успешного завершения курсов мы помогаем с составлением резюме и подготовкой к собеседованиям.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Отзывы студентов</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Курс по Python полностью изменил мое представление о программировании. Преподаватели объясняют сложные вещи простым языком. Теперь работаю джуном в IT-компании!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">А</div>
+                        <div>
+                            <strong>Алексей Иванов</strong>
+                            <div>Выпускник курса Python</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Прошла курс веб-разработки и уже через месяц создала свой первый сайт-портфолио. Очень понравился практический подход и поддержка кураторов."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">М</div>
+                        <div>
+                            <strong>Мария Петрова</strong>
+                            <div>Выпускница курса Веб-разработки</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Курс по ИИ дал мне системное понимание машинного обучения. Теперь могу самостоятельно разрабатывать модели для анализа данных. Спасибо команде Jarvis Pro!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">Д</div>
+                        <div>
+                            <strong>Дмитрий Сидоров</strong>
+                            <div>Выпускник курса Искусственный интеллект</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <h2>Готовы начать свой путь в IT?</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.25rem;">Присоединяйтесь к тысячам студентов, которые уже изменили свою карьеру с помощью наших курсов.</p>
+            <a href="#contact" class="btn" style="background: white; color: var(--accent-dark);">Начать обучение</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Контактная информация</h3>
+                    <p><strong>Email:</strong> info@jarvisproeducation.com</p>
+                    <p><strong>Телефон:</strong> +7 (XXX) XXX-XX-XX</p>
+                    <p><strong>Адрес:</strong> г. Москва, ул. Образовательная, д. 1</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Форма обратной связи</h3>
+                    <form id="contactForm" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <input type="text" placeholder="Ваше имя" required style="padding: 0.75rem; border: 1px solid #d1d5db; border-radius: var(--radius);">
+                        <input type="email" placeholder="Ваш email" required style="padding: 0.75rem; border: 1px solid #d1d5db; border-radius: var(--radius);">
+                        <textarea placeholder="Ваше сообщение" rows="4" required style="padding: 0.75rem; border: 1px solid #d1d5db; border-radius: var(--radius); resize: vertical;"></textarea>
+                        <button type="submit" class="btn">Отправить сообщение</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>© 2024 Jarvis Pro Education. Все права защищены. | <a href="#">Политика конфиденциальности</a></p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Jarvis Pro Education</h3>
+                    <p>Современная образовательная платформа для обучения программированию и IT-технологиям.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Курсы</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Python для начинающих</a></li>
+                        <li><a href="#">Веб-разработка</a></li>
+                        <li><a href="#">Искусственный интеллект</a></li>
+                        <li><a href="#">Все курсы</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Компания</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#features">Преимущества</a></li>
+                        <li><a href="#testimonials">Отзывы</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Правовая информация</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="terms.html">Условия использования</a></li>
+                        <li><a href="cookies.html">Политика cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jarvis Pro Education. Все права защищены.</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Mobile Navigation
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+        const overlay = document.getElementById('overlay');
+
+        function openMobileNav() {
+            mobileNav.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileNav() {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuBtn.addEventListener('click', openMobileNav);
+        mobileNavClose.addEventListener('click', closeMobileNav);
+        overlay.addEventListener('click', closeMobileNav);
+
+        // Close mobile nav when clicking on a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', closeMobileNav);
+        });
+
+        // Contact Form
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+                this.reset();
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Lazy loading for images (можно добавить при наличии реальных изображений)
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Performance optimization - defer non-critical CSS
+        window.addEventListener('load', function() {
+            // Load any non-critical CSS here if needed
+        });
+    </script>
 </body>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1861780787527911"
-     crossorigin="anonymous"></script>
 </html>
