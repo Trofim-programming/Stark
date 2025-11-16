@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Товары</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Товары - Jarvis Pro Education</title>
+    <meta name="description" content="Инновационные продукты и программное обеспечение от Jarvis Pro Education">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1861780787527911" crossorigin="anonymous"></script>
+    
     <style>
         /* Стили для модального окна */
         .modal {
@@ -112,7 +116,7 @@
             position: relative;
             text-align: center;
             padding: 100px 20px;
-            background: url('hero_background.jpg') no-repeat center center/cover;
+            background: linear-gradient(90deg, #ff0000, #990000);
         }
 
         .hero h2 {
@@ -126,21 +130,6 @@
             line-height: 1.5;
             max-width: 800px;
             margin: 0 auto;
-        }
-
-        .hero button {
-            padding: 15px 30px;
-            font-size: 1.2em;
-            margin-top: 30px;
-            color: #fff;
-            background: #ff0000;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .hero button:hover {
-            background: #990000;
         }
 
         section {
@@ -168,29 +157,122 @@
             padding: 20px;
             border-radius: 10px;
             background: rgba(255, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
         }
 
         .feature img {
             max-width: 100%;
             height: auto;
             border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            color: #ffcc00;
+            margin: 15px 0;
+        }
+
+        .feature p {
+            margin: 10px 0;
+        }
+
+        .feature button {
+            padding: 10px 20px;
+            background: #ff0000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1em;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .feature button:hover {
+            background: #990000;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             background: #990000;
             color: #fff;
+            margin-top: 50px;
         }
 
         footer a {
             color: #ffcc00;
             text-decoration: none;
             font-weight: bold;
+            margin: 0 10px;
         }
 
         footer a:hover {
             text-decoration: underline;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ffcc00;
+            margin: 10px 0;
+        }
+
+        /* Контейнер для рекламы */
+        .ad-container {
+            margin: 30px 0;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .ad-label {
+            font-size: 0.8em;
+            color: #ccc;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Баннер согласия на cookies */
+        #cookieConsent {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #cookieConsent p {
+            margin-bottom: 10px;
+        }
+
+        #cookieConsent button {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin: 0 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #cookieConsent button:last-child {
+            background: #666;
         }
 
         /* Мобильная версия */
@@ -203,6 +285,16 @@
 
             header h1 {
                 font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+
+            header nav {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            header nav a {
+                margin: 5px 10px;
             }
 
             .hero h2 {
@@ -232,6 +324,7 @@
 
             footer {
                 font-size: 0.9em;
+                padding: 20px;
             }
         }
 
@@ -253,17 +346,36 @@
                 width: 100%;
                 max-width: 90%;
                 margin: 10px 0;
+                padding: 15px;
             }
 
             footer {
                 font-size: 0.8em;
-                padding: 10px;
+                padding: 15px;
+            }
+            
+            .footer-links {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .footer-links a {
+                margin: 5px 0;
             }
         }
     </style>
 </head>
 
 <body>
+    <!-- Баннер согласия на cookies -->
+    <div id="cookieConsent">
+        <p>Мы используем файлы cookie для улучшения работы сайта и показа рекламы. 
+           <a href="privacy-policy.html" style="color: #ffcc00;">Узнать больше</a>
+        </p>
+        <button onclick="acceptCookies()">Принять</button>
+        <button onclick="declineCookies()">Отклонить</button>
+    </div>
+
     <header>
         <h1>Jarvis Pro Education</h1>
         <nav>
@@ -275,52 +387,68 @@
         </nav>
     </header>
 
-    <section>
+    <section class="hero">
         <h2>Наши товары</h2>
-        <p>Приобретите наши инновационные продукты:</p>
+        <p>Приобретите наши инновационные продукты и программное обеспечение</p>
+    </section>
+
+    <!-- Контейнер для рекламы -->
+    <div class="ad-container">
+        <div class="ad-label">Реклама</div>
+        <!-- Google AdSense автоматически разместит рекламу здесь -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1861780787527911"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+    </div>
+
+    <section>
+        <h2 class="section-title">Наши продукты</h2>
         <div class="features">
             <div class="feature">
                 <img src="service13.jpg" alt="Операционная система">
                 <h3>Операционная система</h3>
                 <p>Инновационная OS от нашей команды</p>
-                <p>Цена: Бесплатно</p>
-                <button onclick="window.location.href='downlad.html'">Купить</button>
+                <p class="price">Бесплатно</p>
+                <button onclick="window.location.href='downlad.html'">Скачать</button>
             </div>
             <div class="feature">
                 <img src="service3.jpg" alt="Джарвис Система">
                 <h3>Система Джарвис</h3>
                 <p>Ваш личный помощник и ИИ</p>
-                <p>Цена: 8000руб</p>
+                <p class="price">8000 руб</p>
                 <button onclick="openModal('Система Джарвис')">Купить</button>
             </div>
             <div class="feature">
                 <img src="Photoshop.webp" alt="веб редактор фото">
                 <h3>Photoshop Stark</h3>
                 <p>Инновационный веб редактор фото от нашей команды</p>
-                <p>Цена: Бесплатно</p>
+                <p class="price">Бесплатно</p>
                 <button onclick="window.location.href='photoshop.html'">Перейти</button>
             </div>
             <div class="feature">
                 <img src="create.webp" alt="веб рисования">
                 <h3>Create Stark</h3>
                 <p>Инновационный веб рисовалка от нашей команды</p>
-                <p>Цена: Бесплатно</p>
+                <p class="price">Бесплатно</p>
                 <button onclick="window.location.href='create.html'">Перейти</button>
             </div>
         </div>
     </section>
 
-    <script>
-        document.getElementById("yesButton").addEventListener("click", function() {
-            fetch("/send_message", {
-                method: "POST"
-            })
-                .then(response => response.json())
-                .then(data => {
-                    alert(data.message);
-                });
-        });
-    </script>
+    <!-- Еще один контейнер для рекламы -->
+    <div class="ad-container">
+        <div class="ad-label">Реклама</div>
+        <!-- Google AdSense автоматически разместит рекламу здесь -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1861780787527911"
+             data-ad-slot="0987654321"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+    </div>
 
     <!-- Модальное окно -->
     <div id="paymentModal" class="modal">
@@ -343,7 +471,48 @@
         </div>
     </div>
 
+    <footer>
+        <p>© 2024 Jarvis Pro Education. Все права защищены.</p>
+        <div class="footer-links">
+            <a href="index.html">Главная</a>
+            <a href="privacy-policy.html">Политика конфиденциальности</a>
+            <a href="terms.html">Условия использования</a>
+            <a href="contacts.html">Контакты</a>
+        </div>
+        <p>Свяжитесь с нами: <a href="mailto:info@jarvisproeducation.com">info@jarvisproeducation.com</a></p>
+    </footer>
+
     <script>
+        // Функции для управления cookies
+        function acceptCookies() {
+            document.getElementById('cookieConsent').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+            // Инициализация сервисов, требующих согласия
+            initializeAds();
+        }
+
+        function declineCookies() {
+            document.getElementById('cookieConsent').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'false');
+            // Отключение ненужных сервисов
+        }
+        
+        function initializeAds() {
+            // Инициализация Google Ads
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        }
+
+        // Проверка согласия при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+            if (!cookiesAccepted) {
+                document.getElementById('cookieConsent').style.display = 'block';
+            } else if (cookiesAccepted === 'true') {
+                initializeAds();
+            }
+        });
+
+        // Функции для модального окна
         function openModal(productName) {
             document.getElementById('paymentModal').style.display = 'flex';
             document.getElementById('product-name').textContent = `Оплата за: ${productName}`;
@@ -355,13 +524,18 @@
 
         function processPayment(event) {
             event.preventDefault();
-            alert('Оплата успешно проведена!');
+            // В реальном приложении здесь должна быть интеграция с платежной системой
+            alert('Оплата успешно проведена! С вами свяжутся для подтверждения заказа.');
             closeModal();
         }
-    </script>
 
-    <footer>
-        <p>© 2024 Jarvis Pro Education. Все права защищены.</p>
-    </footer>
+        // Закрытие модального окна при клике вне его
+        window.onclick = function(event) {
+            const modal = document.getElementById('paymentModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
